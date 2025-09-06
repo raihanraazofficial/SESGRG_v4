@@ -47,6 +47,18 @@ function App() {
   useEffect(() => {
     clearOldLocalStorageData();
     
+    // Auto-populate Firebase with sample data if empty (for development/testing)
+    autoPopulateIfEmpty().then(result => {
+      if (result.success) {
+        console.log('✅ Firebase initialization:', result.message);
+        if (result.results) {
+          console.log('📊 Data counts:', result.results);
+        }
+      } else {
+        console.error('❌ Firebase initialization failed:', result.error);
+      }
+    });
+    
     // Debug input fields if there are issues
     setTimeout(() => {
       debugInputFields();
