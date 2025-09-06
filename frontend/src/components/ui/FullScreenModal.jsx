@@ -15,9 +15,24 @@ const FullScreenModal = ({
 }) => {
   if (!isOpen) return null;
 
+  // Handle backdrop click - only close if clicking directly on the backdrop
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="admin-modal-fullscreen admin-modal-overlay">
-      <div className={`admin-modal-content bg-white rounded-xl w-full shadow-2xl flex flex-col ${className}`}>
+    <div 
+      className="admin-modal-fullscreen admin-modal-overlay"
+      onClick={handleBackdropClick}
+      style={{ pointerEvents: 'auto' }}
+    >
+      <div 
+        className={`admin-modal-content bg-white rounded-xl w-full shadow-2xl flex flex-col ${className}`}
+        onClick={(e) => e.stopPropagation()}
+        style={{ pointerEvents: 'auto' }}
+      >
         
         {/* Fixed Header */}
         <div className="admin-modal-header sticky top-0 bg-white border-b border-gray-200 p-4 lg:p-6 flex items-center justify-between rounded-t-xl z-10">
