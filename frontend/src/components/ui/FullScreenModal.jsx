@@ -61,8 +61,8 @@ const FullScreenModal = ({
         </div>
 
         {/* Scrollable Content */}
-        <div className="admin-modal-scrollable flex-1 overflow-y-auto">
-          <div className="admin-modal-form p-4 lg:p-6">
+        <div className="admin-modal-scrollable flex-1 overflow-y-auto" style={{ pointerEvents: 'auto' }}>
+          <div className="admin-modal-form p-4 lg:p-6" style={{ pointerEvents: 'auto' }}>
             {children}
           </div>
         </div>
