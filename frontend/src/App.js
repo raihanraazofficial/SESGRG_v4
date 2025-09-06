@@ -6,6 +6,7 @@ import "./styles/input-fix.css";
 import "./styles/admin-form-fixes.css";
 import { clearOldLocalStorageData } from "./utils/clearOldData";
 import { debugInputFields } from "./utils/debugInputs";
+import { autoPopulateIfEmpty } from "./utils/populateFirebase";
 
 // Import components
 import Navbar from "./components/Navbar";
